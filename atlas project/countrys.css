@@ -1,0 +1,147 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("images/greg-rakozy-oMpAz-DN-9I-unsplash.jpg");
+    background-size: cover;
+    z-index: -1;
+    background-attachment: fixed;
+    cursor: pointer;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+#homeLink{
+    font-family:'Courgette', cursive;
+    font-size:25px;
+}
+header > nav{
+    cursor: pointer;
+    height: 80px;
+}
+header{
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+}
+.navbar{
+    background-color: rgba(85, 85, 85, 0.846);
+}
+#nFoundSpan{
+    font-size: 50px;
+    display: none;
+    margin-bottom: 430px;
+}
+nav a::after {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 0%;
+    background:orange;
+    transition: 1000ms;
+    margin: 0 auto;
+}
+
+/* במעבר עכבר יציג את הקו מתחת ללינק */
+nav a:hover::after {
+    width: 100%;
+}
+
+nav a:hover {
+    color: black;
+    transition: 300ms;
+
+}
+
+
+/* במעבר עכבר יציג את הקו מתחת ללינק */
+nav a:hover::before {
+    width: 100%;
+}
+
+main{
+    padding-top: 120px;
+}
+#errSpan{
+    font-size: 50px;
+    margin-bottom: 500px;
+}
+#modal-body {
+    background-image: url("images/greg-rakozy-oMpAz-DN-9I-unsplash.jpg");
+    background-position: bottom bottom bottom bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+}
+.modal button{
+    background-color: #242424;
+    color: white;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    text-align: center;
+}
+.modal button:hover{
+    box-shadow: 0px 0px 30px 0px #f1e7e7;
+
+}
+.singleCountry {
+    min-height: 320px;
+    border-radius: 40px;
+    box-shadow: 0px 0px 30px 0px #504242;
+}
+
+.singleCountry:hover {
+    box-shadow: 0px 0px 30px 0px #aaaaaa;
+}
+
+.singleCountry img {
+    min-height: 50%;
+    border-radius: 30px;
+}
+
+
+
+h1 {
+    color: white;
+}
+
+.modal {
+    --bs-modal-width: 800px;
+    --bs-modal-margin: 1rem;
+}
+
+.modal-content {
+    background-image: url("images/greg-rakozy-oMpAz-DN-9I-unsplash.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.modal-header{
+    box-shadow: 0px 0px 30px 0px #504242;
+    height: 50px;
+}
+
+.Mymap {
+    height: 100%;
+    width: 100%;
+}
+
+.Mymap iframe {
+    border-radius: 0px 5px 10px 0px;
+}
+
+footer {
+    height: 14vh;
+    background-color: rgba(85, 85, 85, 0.846);
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder;
+}
+footer > .container{
+margin-top: 135px;
+}
