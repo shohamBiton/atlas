@@ -16,6 +16,7 @@ window.onload = async () => {
     await doApi();
     presentFirstCountries();
     declareEvents(doApiByName, presentFirstCountries);
+    AOS.init();
 
 }
 
@@ -61,13 +62,7 @@ export const doApiByName = async (cName) => {
     let data = await resp.json();
     presentCountrys1(data);
 }
-// export const doApiByCca3 = async (cca3) => {
-//     let url = `https://restcountries.com/v3.1/alpha/${cca3}`;
-//     let resp = await fetch(url);
-//     let data = await resp.json();
-//     console.log(data);
-//     return data.name.common;
-// }
+
 export const doApiByCca3 = (_arg) => {
     let myitem = allCountries_ar
     let cca3

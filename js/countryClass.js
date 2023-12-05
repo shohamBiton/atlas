@@ -25,8 +25,10 @@ export default class Country {
            a.innerHTML= doApiByCca3(this.borders[i])
           this.borders[i]=a.innerHTML
            i==this.borders.length-1?a.innerHTML+=" .":a.innerHTML+=" ,"        
-           a.addEventListener("click", () => {
-            doApiByName(this.borders[i])
+           a.addEventListener("click",async () => {
+            await doApiByName(this.borders[i])
+            document.querySelector(".modal").style.display="none";
+            document.querySelector(".modal-backdrop").style.display="none";
            })
           this.borderDiv.append(a)
        }}
@@ -37,31 +39,35 @@ export default class Country {
        }
    
     }
+    // <img class="w-100 h-100" img src="${this.flag}" alt="${this.name}">
 
     render() {
         let countryDiv = document.createElement("div");
         countryDiv.className = "singleCountry border border-dark col-lg-3 col-sm-12 mb-5 me-1 pb-5 text-center"
-        countryDiv.innerHTML = `<div>
-        <div class="img img_box h-50
-        ">
-        <img class="w-100 h-100" img src="${this.flag}" alt="${this.name}">
-        </div>
-        <hr>
-        <h1>${this.name}</h1>
+        let imgDiv = document.createElement("div");
+        imgDiv.className = "img_div"
+        imgDiv.style=`background-image: url("${this.flag}");`;
+        countryDiv.append(imgDiv);
+        let titleDiv = document.createElement("div");
+        titleDiv.className = "titel_div"
+        titleDiv.innerHTML=`<hr><h1>${this.name}</h1>`;
+        countryDiv.append(titleDiv);
+        // countryDiv.innerHTML += `<div>
+
  
-        </div>`
+        // </div>`
         let parant = document.querySelector(this.parent);
         parant.append(countryDiv);
         countryDiv.addEventListener("click", () => {
             showModal(countryDiv, this);
         });
     }
+
     singleCountryRender() {
         let countryDiv = document.createElement("div");
-        countryDiv.className = "modalCountry"
-
+        countryDiv.className = "modalCountry";
         let informDiv = document.createElement("div");
-        informDiv.className = "informCountry mb-5"
+        informDiv.className = "informCountry mb-5";
         informDiv.style.color ="white"
         informDiv.innerHTML = `<div class="row justify-content-between">
         <div class="modal_img img_box col-6">
@@ -84,14 +90,12 @@ export default class Country {
         <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
         src="https://maps.google.com/maps?q=${this.lat},${this.lan}&hl=es&z=4&amp;output=embed">
         </iframe>
-       </div>  
-        `;
+        </div>`;
         countryDiv.append(informDiv);
         countryDiv.append(map);
         let parant = document.querySelector("#modal-body");
         parant.innerHTML = "";
         parant.append(countryDiv);
-
     }
 }
 
